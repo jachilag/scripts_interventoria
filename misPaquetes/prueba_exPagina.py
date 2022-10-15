@@ -121,5 +121,3 @@ def separarPDFsiniestros():
 
 
 
-
-separarPDFsiniestros()

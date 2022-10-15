@@ -14,12 +14,12 @@ facil la revision de las o
 def formatoFotos():
     ACTIVIDADES = ['Mantenimiento preventivo', 'Mantenimiento correctivo', 'Siniestros', 'Otros']
 
-    RUTA_ORIGEN = 'C:/Users/User/Desktop/jonathan/DIGITALIZACION FOTOS/10. Septiembre 2022_2'
+    RUTA_ORIGEN = 'C:/Users/User/Desktop/jonathan/DIGITALIZACION FOTOS/10. Septiembre 2022'
     if not RUTA_ORIGEN: 
         print("no se eligió ninguna opcion")
         return
 
-    RUTA_DESTINO = 'C:/Users/User/Desktop/jonathan/DIGITALIZACION FOTOS/PDF'
+    RUTA_DESTINO = 'C:/Users/User/Desktop/jonathan/DIGITALIZACION FOTOS/10. Septiembre 2022_3'
     if not RUTA_DESTINO: 
         print("no se eligió ninguna opcion")
         return

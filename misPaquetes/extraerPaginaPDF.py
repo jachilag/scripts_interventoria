@@ -110,7 +110,7 @@ def separarPDFsiniestros():
 
             pdf_writer = PdfFileWriter()
             [pdf_writer.addPage(pdf_reader.getPage(pg-1)) for pg in v if pg!=-1]
-
+   
             with open(f'{rutaGuardado}{k}.pdf', 'wb') as doc_file:
                 pdf_writer.write(doc_file)
 
@@ -122,6 +122,3 @@ def separarPDFsiniestros():
     extraerPaginas(conNegativos)
     listaNoEncontrados(salida)
     ventanaInfo("ARCHIVOS GENERADOS SATISFACORIAMENTE,\n revise en consola las OTs no encontradas")
-
-
-separarPDFsiniestros()

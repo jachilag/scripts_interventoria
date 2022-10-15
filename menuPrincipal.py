@@ -78,4 +78,5 @@ def programa():
     bloque(opcion, opciones, programa)
         
 #PROGRAMA PRINCIPAL
-programa()
+if __name__ == '__main__':
+    programa()
