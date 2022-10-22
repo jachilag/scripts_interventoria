@@ -8,18 +8,17 @@ import os
 """ 
 Este script permite pasar las fotos del esquema de carpetas mes -> actividad -> ext ## id ## fecha -> fotos 
 al esquema mes -> actividad -> fotos(ext ## id ## fecha), para qeu el ingeniero ricardo patiño le quede
-facil la revision de las o
+facil la revision de las fotos
 """
 
 def formatoFotos():
-    ACTIVIDADES = ['Mantenimiento preventivo', 'Mantenimiento correctivo', 'Siniestros', 'Otros']
 
     RUTA_ORIGEN = 'C:/Users/User/Desktop/jonathan/DIGITALIZACION FOTOS/10. Septiembre 2022'
     if not RUTA_ORIGEN: 
         print("no se eligió ninguna opcion")
         return
 
-    RUTA_DESTINO = 'C:/Users/User/Desktop/jonathan/DIGITALIZACION FOTOS/10. Septiembre 2022_3'
+    RUTA_DESTINO = 'C:/Users/User/Desktop/jonathan/DIGITALIZACION FOTOS/10. Septiembre 2022_4'
     if not RUTA_DESTINO: 
         print("no se eligió ninguna opcion")
         return
@@ -29,13 +28,16 @@ def formatoFotos():
         """ 
         luego de listar los nombres de las carpetas (rutas) esta funcion las creara donde el usuario elija 
         """
+        for (dirs, subcapetas, archivos) in walk(RUTA_ORIGEN):
+            ACTIVIDADES = subcapetas
+            break
         [os.makedirs(RUTA_DESTINO+"/"+r) for r in ACTIVIDADES]
 
 
     def nombreArchivos(ruta = '.'):
         """
         Genera una lista con las direcciones de las carpetas que ya no tienen subcarpetas, esto con el fin 
-        de llegar hasta donde estan los archivos del tipo que se necesite. en mi caso de tipo imagen 
+        de llegar hasta donde estan los archivos del tipo que se necesite. en este caso de tipo imagen .jpg
         """
         rutasNombres = []
         nombresDestino = []
@@ -62,7 +64,6 @@ def formatoFotos():
             shutil.copy2(rutasNombres[i], imagenes_destino[i])
             bar2.next()
         bar2.finish()
-    
 
     try:
         moverFotos(RUTA_ORIGEN, RUTA_DESTINO)
@@ -71,5 +72,6 @@ def formatoFotos():
         moverFotos(RUTA_ORIGEN, RUTA_DESTINO)
     
     ventanaInfo("FOTOS PROCESADAS SATISFACTORIAMENTE")
+
 
 formatoFotos()

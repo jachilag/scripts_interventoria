@@ -31,7 +31,7 @@ def unirPDFs():
         print("no se eligió ninguna opcion")
         return
     archivosPDF = [(ruta+"/"+archivo) for archivo in os.listdir(ruta) if archivo.endswith(".pdf")]
-    rutaSalida = cuadroDialogoGuardarArchivo("GUARDAR ARCHIVO FINAL COMO")
+    rutaSalida = cuadroDialogoGuardarArchivo("GUARDAR ARCHIVO FINAL COMO",ruta)
     fusionador = PdfFileMerger()
     
     for file in archivosPDF:

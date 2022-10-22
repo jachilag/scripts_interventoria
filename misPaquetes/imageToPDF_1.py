@@ -55,7 +55,7 @@ def imagenToPDF():
     Mantenimiento preventivo
     Otros
     Siniestros""")
-    seleccion = cuadroDialogo("ELIJA CARPETA DONDE ESTAN LAS FOTOS")
+    seleccion = cuadroDialogo("ELIJA CARPETA DONDE ESTAN LAS FOTOS",ruta2)
     if not seleccion: 
         print("no se eligió ninguna opcion")
         return

@@ -12,14 +12,14 @@ facil la revision de las o
 """
 
 def formatoFotos():
-    ACTIVIDADES = ['Mantenimiento preventivo', 'Mantenimiento correctivo', 'Siniestros', 'Otros']
+
 
     RUTA_ORIGEN = cuadroDialogo("seleccione carpeta origen donde estan las carpetas con las fotos")
     if not RUTA_ORIGEN: 
         print("no se eligió ninguna opcion")
         return
 
-    RUTA_DESTINO = cuadroDialogo("seleccione carpeta destino donde colocara las fotos")
+    RUTA_DESTINO = cuadroDialogo("seleccione carpeta destino donde colocara las fotos", RUTA_ORIGEN)
     if not RUTA_DESTINO: 
         print("no se eligió ninguna opcion")
         return
@@ -29,7 +29,11 @@ def formatoFotos():
         """ 
         luego de listar los nombres de las carpetas (rutas) esta funcion las creara donde el usuario elija 
         """
-        [os.makedirs(RUTA_DESTINO+os.sep+r) for r in ACTIVIDADES]
+        for (dirs, subcapetas, archivos) in walk(RUTA_ORIGEN):
+            ACTIVIDADES = subcapetas
+            break
+        
+        [os.makedirs(RUTA_DESTINO+"/"+r) for r in ACTIVIDADES]
 
 
     def nombreArchivos(ruta = '.'):

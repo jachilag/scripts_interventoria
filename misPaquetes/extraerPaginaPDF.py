@@ -20,9 +20,9 @@ def separarPDFsiniestros():
 
     archivoTXT = cuadroDialogoAbrirArchivo("seleccione el archivo.txt")
     if archivoTXT == "":return;
-    pdfGeneral = cuadroDialogoAbrirArchivo("elija el archivo PDF origen de los datos",".pdf")
+    pdfGeneral = cuadroDialogoAbrirArchivo("elija el archivo PDF origen de los datos",".pdf",archivoTXT)
     if pdfGeneral == "":return;
-    rutaGuardado = cuadroDialogo("elija carpeta donde desea guardar los PDFs") + os.sep
+    rutaGuardado = cuadroDialogo("elija carpeta donde desea guardar los PDFs",pdfGeneral) + os.sep
     if rutaGuardado == "":return;
 
     def leerArchivoOTs():

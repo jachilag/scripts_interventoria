@@ -59,10 +59,10 @@ def cuadroDialogoGuardarArchivo(msj="Elija una carpeta", tipo='.pdf'):
         )
     return rutaArchivo
 
-def cuadroDialogoAbrirArchivo(msj="Elija una carpeta",tipo=".txt"):
+def cuadroDialogoAbrirArchivo(msj="Elija una carpeta",tipo=".txt",ruta='.'):
     rutaArchivo = FileDialog.askopenfilename(
         title = msj,
-        initialdir = '.',
+        initialdir = ruta,
         defaultextension = tipo,
         )
     return rutaArchivo
