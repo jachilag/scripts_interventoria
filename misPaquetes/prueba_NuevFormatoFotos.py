@@ -45,8 +45,8 @@ def formatoFotos():
         for (dirs, subcapetas, archivos) in walk(ruta):
             if(len(subcapetas) == 0):
                 nombreBase = os.sep + dirs[numeroEliminar+1::1]
-                [rutasNombres.append(dirs+os.sep+nom) for nom in archivos if nom.endswith('.jpg')]
-                [nombresDestino.append(f'{nombreBase}({i+1})') for i in range(len(archivos)) if archivos[i].endswith('.jpg')]
+                [rutasNombres.append(dirs+os.sep+nom) for nom in archivos if (nom.endswith(".jpg") or nom.endswith(".jpeg") or nom.endswith(".png"))]
+                [nombresDestino.append(f'{nombreBase}({i+1})') for i in range(len(archivos)) if (archivos[i].endswith(".jpg") or archivos[i].endswith(".jpeg") or archivos[i].endswith(".png"))]
 
         return rutasNombres, nombresDestino
 

@@ -1,6 +1,7 @@
 from os import system
 
 import misPaquetes.imageToPDF_2 as img_PDF_2
+import misPaquetes.imageToPDF_general as img_PDF_general
 import misPaquetes.nuevoFormatoFotos as nuevoFotos
 
 
@@ -9,6 +10,9 @@ def opcion_1():
     nuevoFotos.formatoFotos()
 
 def opcion_2():
+    img_PDF_general.imagenToPDF()
+
+def opcion_3():
     img_PDF_2.imagenToPDF()
 
 def bloque(opcion,opciones,programa):   #para cada opcion seleccionada se ejecuta el bloque de instrucciones
@@ -34,7 +38,8 @@ def programa():
     print('Que accion desea realizar?:\n')
     opciones=[]
     opciones.append("1. RENOMBRAR FOTOS PARA SDM")
-    opciones.append("2. Pasar fotos a PDF (Modelo desde septiembre 2022)")
+    opciones.append("2. Pasar fotos a PDF GENERAL")
+    opciones.append("3. Pasar fotos a PDF ELECTRICOS")
     opciones.append("0. SALIR")
 
     [print(x) for x in opciones]

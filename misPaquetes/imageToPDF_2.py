@@ -42,6 +42,7 @@ def nombreArchivos(ruta = '.'):
     return fileName, rutas
 
 def imagenToPDF():
+    noGenerados = []
     ruta2 = cuadroDialogo("ELIJA DESTINO DONDE DESEA CREAR LOS ARCHIVOS")
     if not ruta2: 
         print("no se eligió ninguna opcion")
@@ -58,12 +59,16 @@ def imagenToPDF():
     lista, rutas = nombreArchivos(seleccion)
     bar2 = Bar('Creando PDFs:', max=len(lista))
     for i in range(len(lista)):
-        imagenes_jpg = [(rutas[i]+os.sep+archivo) for archivo in os.listdir(rutas[i]) if archivo.endswith(".jpg")]
+        imagenes_jpg = [(rutas[i]+os.sep+archivo) for archivo in os.listdir(rutas[i]) if (archivo.endswith(".jpg") or archivo.endswith(".jpeg") or archivo.endswith(".png"))]
         if(len(imagenes_jpg)==0):continue
 
         with open(ruta2+os.sep+lista[i]+".pdf", "wb") as documento:
             documento.write(img2pdf.convert(imagenes_jpg))
         bar2.next()
     bar2.finish()
+
+    if (len(noGenerados)!=0):
+        print("\nLos siguientes archivos no se generaron: \n")
+        [print(nombre) for nombre in noGenerados]
     
     ventanaInfo("ARCHIVOS CREADOS SATISFACTORIAMENTE")
