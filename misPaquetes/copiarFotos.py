@@ -68,6 +68,6 @@ def moverFotos(ruta1='.'):
     listas2, rutas2, _ = nombreArchivos2('C:/Users/User/Desktop/jonathan/DIGITALIZACION FOTOS/10. Septiembre 2022_2')
 
     for i in range(len(listas)):
-        imagenes_jpg = [(rutas[i]+"/"+archivo) for archivo in os.listdir(rutas[i]) if archivo.endswith(".jpg")]
+        imagenes_jpg = [(rutas[i]+"/"+archivo) for archivo in os.listdir(rutas[i]) if (archivo.endswith(".jpg") or archivo.endswith(".jpeg") or archivo.endswith(".png"))]
         if(len(imagenes_jpg)==0):continue
         [shutil.copy2(img, rutas2[i]) for img in imagenes_jpg]

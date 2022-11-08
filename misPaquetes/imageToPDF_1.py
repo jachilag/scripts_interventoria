@@ -61,7 +61,7 @@ def imagenToPDF():
         return
     lista, rutas = nombreArchivos(seleccion)
     for i in range(len(lista)):
-        imagenes_jpg = [(rutas[i]+"/"+archivo) for archivo in os.listdir(rutas[i]) if archivo.endswith(".jpg")]
+        imagenes_jpg = [(rutas[i]+"/"+archivo) for archivo in os.listdir(rutas[i]) if (archivo.endswith(".jpg") or archivo.endswith(".jpeg") or archivo.endswith(".png"))]
         if(len(imagenes_jpg)==0):continue
 
         with open(ruta2+"/"+lista[i]+".pdf", "wb") as documento:

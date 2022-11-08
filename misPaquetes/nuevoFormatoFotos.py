@@ -58,7 +58,7 @@ def formatoFotos():
         ruta2 = rutaDestino
         # ruta2 = cuadroDialogo("seleccione carpeta destino donde guardara las fotos")
 
-        imagenes_destino = [(ruta2+archivo+".jpg") for archivo in nombresDestino]
+        imagenes_destino = [(ruta2+archivo.upper()+".jpg") for archivo in nombresDestino]
 
         # [shutil.copy2(rutasNombres[i], imagenes_destino[i]) for i in range(len(imagenes_destino))]
         bar2 = Bar('Procesando Fotos:', max=len(imagenes_destino))
