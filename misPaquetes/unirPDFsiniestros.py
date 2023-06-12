@@ -13,10 +13,12 @@ informacion.
 
 las carpetas deben estar tituladas asi:
 1. INFORME Y EV.COSTOS
-2. PROTOCOLOS
-3. BITACORA
-4. FORMATOS INTERVENTORIA
-5. COMPILADOS
+2. EV. COSTOS POSTES
+3. EV. COSTOS CIVILES
+4. PROTOCOLOS
+5. BITACORA
+6. FORMATOS INTERVENTORIA
+7. COMPILADOS
 """
 
 
@@ -39,11 +41,13 @@ def rutaArchivos(ruta = '.'):
 
 def unirPDFsiniestros():
     print(""" \nDebe seleccionar la carpeta general que contenga la estructura de carpetas:
-    1. INFORME Y EV.COSTOS
-    2. PROTOCOLOS
-    3. BITACORA
-    4. FORMATOS INTERVENTORIA
-    5. COMPILADOS
+        1. INFORME Y EV.COSTOS
+        2. EV. COSTOS POSTES
+        3. EV. COSTOS CIVILES
+        4. PROTOCOLOS
+        5. BITACORA
+        6. FORMATOS INTERVENTORIA
+        7. COMPILADOS
      """)
     seleccion = cuadroDialogo("ELIJA CARPETA DONDE ESTAN LAS CARPETAS DE LA QUINCENA")
     if not seleccion: 
@@ -58,12 +62,12 @@ def unirPDFsiniestros():
         pdfs = []
         fusionador = PdfFileMerger(strict=False)
 
-        for i in range(4):
+        for i in range(6):
             archivosPDF_2 = [(archivo) for archivo in os.listdir(rutas[i]) if archivo.endswith(".pdf")]
             if file in archivosPDF_2:
                 fusionador.append(open(rutas[i]+os.sep+file, 'rb'))
         
-        with open(rutas[4]+os.sep+file, 'wb') as salida:
+        with open(rutas[6]+os.sep+file, 'wb') as salida:
             fusionador.write(salida)
         bar2.next()
     bar2.finish()
